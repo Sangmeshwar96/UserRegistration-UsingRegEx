@@ -14,6 +14,7 @@ namespace RegexProblem
             regex.ValidatePassword1("sangmeshwar96");
             regex.ValidatePassword2("Sangmeshwar96");
             regex.ValidatePassword3(".Sangmeshwar96");
+            regex.ValidatePassword4(".Sangmeshwar*96");
         }
     }
 }

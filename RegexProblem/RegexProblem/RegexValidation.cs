@@ -100,5 +100,19 @@ namespace RegexProblem
             }
             return passwordRule3;
         }
+        public string ValidatePassword4(string password4)
+        {
+            string passwordRule4 = "^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[!@#$%^&*()_+=-]).{8,}$";
+            if (Regex.IsMatch(password4, passwordRule4))
+            {
+                Console.WriteLine("Password4 is Matching");
+            }
+            else
+            {
+                Console.WriteLine("Password4 is Not Matching");
+            }
+            return passwordRule4;
+        }
+
     }
 }
