@@ -66,5 +66,25 @@ namespace UserRegistrationTest
             //Assert
             Assert.AreNotEqual(expected, result);
         }
+        [TestMethod]
+        public void ValidateNumber_Should_return_true_on_valid_input()
+        {
+            //Arrange
+            string expected = @"[0-9]{1,2}\s[0-9]{10}";
+            //Act
+            string result = validation.ValidatePhoneNumber("91 6958348751");
+            //Assert
+            Assert.AreEqual(expected, result);
+        }
+        [TestMethod]
+        public void ValidateNumber_Should_return_false_on_invalid_input()
+        {
+            //Arrange
+            string expected = "91 6958348751";
+            //Act
+            string result = validation.ValidatePhoneNumber("12548963");
+            //Assert
+            Assert.AreNotEqual(expected, result);
+        }
     }
 }
