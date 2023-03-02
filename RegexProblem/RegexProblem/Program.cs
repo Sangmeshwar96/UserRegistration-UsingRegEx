@@ -10,6 +10,7 @@ namespace RegexProblem
             regex.ValidateFirstName("Sangmeshwar");
             regex.ValidateLastName("Patil");
             regex.ValidateEmail("Patil.sangmeshwar@gmail.co.in");
+            regex.ValidatePhoneNumber("91 9665679388");
         }
     }
 }
