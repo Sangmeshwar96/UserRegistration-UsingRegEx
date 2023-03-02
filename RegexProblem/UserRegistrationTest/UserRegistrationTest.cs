@@ -46,5 +46,25 @@ namespace UserRegistrationTest
             //Assert
             Assert.AreNotEqual(expected, result);
         }
+        [TestMethod]
+        public void ValidateEmail_Should_return_true_on_valid_input()
+        {
+            //Arrange
+            string expected = "^[a-zA-Z]+[.+_-]{0,1}[a-z]+[@][a-zA-Z]+[.][a-z]{2,3}([.][a-z]{2}){0,1}$";
+            //Act
+            string result = validation.ValidateEmail("Sangmeshwar09@gmail.com.in");
+            //Assert
+            Assert.AreEqual(expected, result);
+        }
+        [TestMethod]
+        public void ValidateEmail_Should_return_false_on_invalid_input()
+        {
+            //Arrange
+            string expected = "Sangmeshwar09@gmail.com.in";
+            //Act
+            string result = validation.ValidateEmail("Sangmeshwar09@gmail.co.in.au");
+            //Assert
+            Assert.AreNotEqual(expected, result);
+        }
     }
 }

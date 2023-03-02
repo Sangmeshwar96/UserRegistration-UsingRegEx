@@ -9,6 +9,7 @@ namespace RegexProblem
             RegexValidation regex = new RegexValidation();
             regex.ValidateFirstName("Sangmeshwar");
             regex.ValidateLastName("Patil");
+            regex.ValidateEmail("Patil.sangmeshwar@gmail.co.in");
         }
     }
 }
