@@ -146,5 +146,26 @@ namespace UserRegistrationTest
             //Assert
             Assert.AreNotEqual(expected, result);
         }
+
+        [TestMethod]
+        public void ValidatePasswordRule4_Should_return_true_on_valid_input()
+        {
+            //Arrange
+            string expected = "^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[!@#$%^&*()_+=-]).{8,}$";
+            //Act
+            string result = validation.ValidatePassword4("Sangmeshwar96");
+            //Assert
+            Assert.AreEqual(expected, result);
+        }
+        [TestMethod]
+        public void ValidatePasswordRule4_Should_return_false_on_valid_input()
+        {
+            //Arrange
+            string expected = ".Sangmeshwar.96";
+            //Act
+            string result = validation.ValidatePassword4("ghgfh");
+            //Assert
+            Assert.AreNotEqual(expected, result);
+        }
     }
 }
