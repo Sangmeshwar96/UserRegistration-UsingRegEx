@@ -26,5 +26,25 @@ namespace UserRegistrationTest
             //Assert
             Assert.AreNotEqual(expected, result);
         }
+        [TestMethod]
+        public void ValidateLastName_Should_return_true_on_valid_input()
+        {
+            //Arrange
+            string expected = "^[A-Z][a-zA-Z]{2,}$";
+            //Act
+            string result = validation.ValidateLastName("Patil");
+            //Assert
+            Assert.AreEqual(expected, result);
+        }
+        [TestMethod]
+        public void ValidateLastName_Should_return_false_on_invalid_input()
+        {
+            //Arrange
+            string expected = "Patil";
+            //Act
+            string result = validation.ValidateLastName("patil");
+            //Assert
+            Assert.AreNotEqual(expected, result);
+        }
     }
 }
