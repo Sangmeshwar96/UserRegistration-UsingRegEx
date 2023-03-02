@@ -61,5 +61,18 @@ namespace RegexProblem
             }
             return phoneNumber;
         }
+        public string ValidatePassword1(string password1)
+        {
+            string passwordRule1 = "[A-Z a-z 0-9]{8,}";
+            if (Regex.IsMatch(password1, passwordRule1))
+            {
+                Console.WriteLine("Password1 is Matching");
+            }
+            else
+            {
+                Console.WriteLine("Password1 is Not Matching");
+            }
+            return passwordRule1;
+        }
     }
 }
