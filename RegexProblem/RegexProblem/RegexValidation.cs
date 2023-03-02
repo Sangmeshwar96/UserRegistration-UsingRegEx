@@ -74,5 +74,18 @@ namespace RegexProblem
             }
             return passwordRule1;
         }
+        public string ValidatePassword2(string password2)
+        {
+            string passwordRule2 = "^(?=.*?[A-Z]).{8,}$";
+            if (Regex.IsMatch(password2, passwordRule2))
+            {
+                Console.WriteLine("Password2 is Matching");
+            }
+            else
+            {
+                Console.WriteLine("Password2 is Not Matching");
+            }
+            return passwordRule2;
+        }
     }
 }
