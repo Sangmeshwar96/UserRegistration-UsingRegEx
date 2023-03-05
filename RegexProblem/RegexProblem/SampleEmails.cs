@@ -10,12 +10,13 @@ namespace RegexProblem
     public class SampleEmails
     {
         public string email = "^[a-zA-Z0-9]+([!@#$%^&*()_+.,-][a-zA-Z0-9]+)*[@][a-zA-Z]{2,}[.][a-zA-Z]{2,3}([.][a-zA-Z]{2,3})?$";
-        public void CheckEmails(string sample)
+        public string CheckEmails(string sample)
         {
             if (Regex.IsMatch(sample, email))
                 Console.WriteLine("Valid email address");
             else
                 Console.WriteLine("Invalid email address");
+            return email;
         }
     }
 }
