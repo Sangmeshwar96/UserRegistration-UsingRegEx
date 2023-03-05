@@ -6,6 +6,7 @@ namespace UserRegistrationTest
     public class UserRegistrationTest
     {
         RegexValidation validation = new RegexValidation();
+        SampleEmails checkemails = new SampleEmails();
         [TestMethod]
         public void ValidateFirstName_Should_return_true_on_valid_input()
         {
@@ -167,5 +168,25 @@ namespace UserRegistrationTest
             //Assert
             Assert.AreNotEqual(expected, result);
         }
+        [DataTestMethod]
+        [DataRow("^[a-zA-Z0-9]+([!@#$%^&*()_+.,-][a-zA-Z0-9]+)*[@][a-zA-Z]{2,}[.][a-zA-Z]{2,3}([.][a-zA-Z]{2,3})?$", "abc@yahoo.com")]
+        [DataRow("^[a-zA-Z0-9]+([!@#$%^&*()_+.,-][a-zA-Z0-9]+)*[@][a-zA-Z]{2,}[.][a-zA-Z]{2,3}([.][a-zA-Z]{2,3})?$", "abc-100@yahoo.com")]
+        [DataRow("^[a-zA-Z0-9]+([!@#$%^&*()_+.,-][a-zA-Z0-9]+)*[@][a-zA-Z]{2,}[.][a-zA-Z]{2,3}([.][a-zA-Z]{2,3})?$", "abc.100@yahoo.com")]
+        [DataRow("^[a-zA-Z0-9]+([!@#$%^&*()_+.,-][a-zA-Z0-9]+)*[@][a-zA-Z]{2,}[.][a-zA-Z]{2,3}([.][a-zA-Z]{2,3})?$", "abc111@abc.com")]
+        [DataRow("^[a-zA-Z0-9]+([!@#$%^&*()_+.,-][a-zA-Z0-9]+)*[@][a-zA-Z]{2,}[.][a-zA-Z]{2,3}([.][a-zA-Z]{2,3})?$", "abc-100@abc.net")]
+        [DataRow("^[a-zA-Z0-9]+([!@#$%^&*()_+.,-][a-zA-Z0-9]+)*[@][a-zA-Z]{2,}[.][a-zA-Z]{2,3}([.][a-zA-Z]{2,3})?$", "abc+100@gmail.com")]
+        [DataRow("^[a-zA-Z0-9]+([!@#$%^&*()_+.,-][a-zA-Z0-9]+)*[@][a-zA-Z]{2,}[.][a-zA-Z]{2,3}([.][a-zA-Z]{2,3})?$", "abc123@gmail.1a")]
+        [DataRow("^[a-zA-Z0-9]+([!@#$%^&*()_+.,-][a-zA-Z0-9]+)*[@][a-zA-Z]{2,}[.][a-zA-Z]{2,3}([.][a-zA-Z]{2,3})?$", "abc@1.com")]
+        [DataRow("^[a-zA-Z0-9]+([!@#$%^&*()_+.,-][a-zA-Z0-9]+)*[@][a-zA-Z]{2,}[.][a-zA-Z]{2,3}([.][a-zA-Z]{2,3})?$", "abc@.com.my")]
+        [DataRow("^[a-zA-Z0-9]+([!@#$%^&*()_+.,-][a-zA-Z0-9]+)*[@][a-zA-Z]{2,}[.][a-zA-Z]{2,3}([.][a-zA-Z]{2,3})?$", "abc123@.com.com")]
+        public void TestMultipleEmails(string expected, string email)
+        {//Arrange
+
+            //Act
+            string actual = checkemails.CheckEmails(email);
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+
     }
 }
