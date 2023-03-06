@@ -4,114 +4,139 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using System.Xml.Linq;
 
 namespace RegexProblem
 {
     public class RegexValidation
     {
-        public string ValidateFirstName(string fname)
+        public bool ValidateFirstName(string fname)
         {
             string firstName = "^[A-Z][a-zA-Z]{2,}$";
-            if (Regex.IsMatch(fname, firstName))
+            try
             {
-                Console.WriteLine("FirstName is Matching");
+                if (fname.Equals(string.Empty))
+                {
+                    throw new RegexProblemCustomException(RegexProblemCustomException.ExceptionType.EMPTY_INPUT, "First Name should not be empty");
+                }
+                return Regex.IsMatch(fname, firstName);
             }
-            else
+            catch(NullReferenceException)
             {
-                Console.WriteLine("FirstName is Not Matching");
+                throw new RegexProblemCustomException(RegexProblemCustomException.ExceptionType.NULL_INPUT, "First Name should not be null");
             }
-            return firstName;
         }
-        public string ValidateLastName(string lname)
+        public bool ValidateLastName(string lname)
         {
             string lastName = "^[A-Z][a-zA-Z]{2,}$";
-            if (Regex.IsMatch(lname, lastName))
+            try
             {
-                Console.WriteLine("LastName is Matching");
+                if (lname.Equals(string.Empty))
+                {
+                    throw new RegexProblemCustomException(RegexProblemCustomException.ExceptionType.EMPTY_INPUT, "Last Name should not be empty");
+                }
+                return Regex.IsMatch(lname, lastName);
             }
-            else
+            catch (NullReferenceException)
             {
-                Console.WriteLine("LastName is Not Matching");
+                throw new RegexProblemCustomException(RegexProblemCustomException.ExceptionType.NULL_INPUT, "last Name should not be null");
             }
-            return lastName;
         }
-        public string ValidateEmail(string email)
+        public bool ValidateEmail(string email)
         {
             string emailId = "^[a-zA-Z]+[.+_-]{0,1}[a-z]+[@][a-zA-Z]+[.][a-z]{2,3}([.][a-z]{2}){0,1}$";
-            if (Regex.IsMatch(email, emailId))
+            try
             {
-                Console.WriteLine("Email is Matching");
+                if (email.Equals(string.Empty))
+                {
+                    throw new RegexProblemCustomException(RegexProblemCustomException.ExceptionType.EMPTY_INPUT, "Email should not be empty");
+                }
+                return Regex.IsMatch(email, emailId);
             }
-            else
+            catch (NullReferenceException)
             {
-                Console.WriteLine("Email is Not Matching");
+                throw new RegexProblemCustomException(RegexProblemCustomException.ExceptionType.NULL_INPUT, "Email should not be null");
             }
-            return emailId;
         }
-        public string ValidatePhoneNumber(string phonenum)
+        public bool ValidatePhoneNumber(string phonenum)
         {
             string phoneNumber = @"[0-9]{1,2}\s[0-9]{10}";
-            if (Regex.IsMatch(phonenum, phoneNumber))
+            try
             {
-                Console.WriteLine("PhoneNumber is Matching");
+                if (phonenum.Equals(string.Empty))
+                {
+                    throw new RegexProblemCustomException(RegexProblemCustomException.ExceptionType.EMPTY_INPUT, "PhoneNumber should not be empty");
+                }
+                return Regex.IsMatch(phonenum, phoneNumber);
             }
-            else
+            catch (NullReferenceException)
             {
-                Console.WriteLine("PhoneNumber is Not Matching");
+                throw new RegexProblemCustomException(RegexProblemCustomException.ExceptionType.NULL_INPUT, "PhoneNumber should not be null");
             }
-            return phoneNumber;
         }
-        public string ValidatePassword1(string password1)
+        public bool ValidatePassword1(string password1)
         {
             string passwordRule1 = "[A-Z a-z 0-9]{8,}";
-            if (Regex.IsMatch(password1, passwordRule1))
+            try
             {
-                Console.WriteLine("Password1 is Matching");
+                if (password1.Equals(string.Empty))
+                {
+                    throw new RegexProblemCustomException(RegexProblemCustomException.ExceptionType.EMPTY_INPUT, "Password should not be empty");
+                }
+                return Regex.IsMatch(password1, passwordRule1);
             }
-            else
+            catch (NullReferenceException)
             {
-                Console.WriteLine("Password1 is Not Matching");
+                throw new RegexProblemCustomException(RegexProblemCustomException.ExceptionType.NULL_INPUT, "Password should not be null");
             }
-            return passwordRule1;
         }
-        public string ValidatePassword2(string password2)
+        public bool ValidatePassword2(string password2)
         {
             string passwordRule2 = "^(?=.*?[A-Z]).{8,}$";
-            if (Regex.IsMatch(password2, passwordRule2))
+            try
             {
-                Console.WriteLine("Password2 is Matching");
+                if (password2.Equals(string.Empty))
+                {
+                    throw new RegexProblemCustomException(RegexProblemCustomException.ExceptionType.EMPTY_INPUT, "Password should not be empty");
+                }
+                return Regex.IsMatch(password2, passwordRule2);
             }
-            else
+            catch (NullReferenceException)
             {
-                Console.WriteLine("Password2 is Not Matching");
+                throw new RegexProblemCustomException(RegexProblemCustomException.ExceptionType.NULL_INPUT, "Password should not be null");
             }
-            return passwordRule2;
         }
-        public string ValidatePassword3(string password3)
+        public bool ValidatePassword3(string password3)
         {
             string passwordRule3 = "^(?=.*?[A-Z])(?=.*?[0-9]).{8,}$";
-            if (Regex.IsMatch(password3, passwordRule3))
+            try
             {
-                Console.WriteLine("Password3 is Matching");
+                if (password3.Equals(string.Empty))
+                {
+                    throw new RegexProblemCustomException(RegexProblemCustomException.ExceptionType.EMPTY_INPUT, "Password should not be empty");
+                }
+                return Regex.IsMatch(password3, passwordRule3);
             }
-            else
+            catch (NullReferenceException)
             {
-                Console.WriteLine("Password3 is Not Matching");
+                throw new RegexProblemCustomException(RegexProblemCustomException.ExceptionType.NULL_INPUT, "Password should not be null");
             }
-            return passwordRule3;
         }
-        public string ValidatePassword4(string password4)
+        public bool ValidatePassword4(string password4)
         {
             string passwordRule4 = "^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[!@#$%^&*()_+=-]).{8,}$";
-            if (Regex.IsMatch(password4, passwordRule4))
+            try
             {
-                Console.WriteLine("Password4 is Matching");
+                if (password4.Equals(string.Empty))
+                {
+                    throw new RegexProblemCustomException(RegexProblemCustomException.ExceptionType.EMPTY_INPUT, "Password should not be empty");
+                }
+                return Regex.IsMatch(password4, passwordRule4);
             }
-            else
+            catch (NullReferenceException)
             {
-                Console.WriteLine("Password4 is Not Matching");
+                throw new RegexProblemCustomException(RegexProblemCustomException.ExceptionType.NULL_INPUT, "Password should not be null");
             }
-            return passwordRule4;
         }
 
     }

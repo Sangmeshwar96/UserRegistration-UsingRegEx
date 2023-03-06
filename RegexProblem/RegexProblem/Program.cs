@@ -6,7 +6,6 @@ namespace RegexProblem
     {
         public static void Main(string[] args)
         {
-
             bool flag = true;
             while(flag)
             {
@@ -18,14 +17,22 @@ namespace RegexProblem
                     case 1:
                         Console.WriteLine("User Validation Check : ");
                         RegexValidation regex = new RegexValidation();
-                        regex.ValidateFirstName("Sangmeshwar");
-                        regex.ValidateLastName("Patil");
-                        regex.ValidateEmail("Patil.sangmeshwar@gmail.co.in");
-                        regex.ValidatePhoneNumber("91 9665679388");
-                        regex.ValidatePassword1("sangmeshwar96");
-                        regex.ValidatePassword2("Sangmeshwar96");
-                        regex.ValidatePassword3(".Sangmeshwar96");
-                        regex.ValidatePassword4(".Sangmeshwar*96");
+                        bool validateFirstName = regex.ValidateFirstName("Sangmeshwar");
+                        Console.WriteLine("FirstName : "+validateFirstName);
+                        bool validateLastName = regex.ValidateLastName("Patil");
+                        Console.WriteLine("LastName : " + validateLastName);
+                        bool validateEmail = regex.ValidateEmail("Patil.sangmeshwar@gmail.co.in");
+                        Console.WriteLine("Email : " + validateEmail);
+                        bool validatePhoneNumber =regex.ValidatePhoneNumber("91 9665679388");
+                        Console.WriteLine("PhoneNumber : " + validatePhoneNumber);
+                        bool validatePassword1 =regex.ValidatePassword1("sangmeshwar96");
+                        Console.WriteLine("Password1 : " + validatePassword1);
+                        bool validatePassword2 = regex.ValidatePassword2("Sangmeshwar96");
+                        Console.WriteLine("Password2 : " + validatePassword2);
+                        bool validatePassword3 = regex.ValidatePassword3(".Sangmeshwar96");
+                        Console.WriteLine("Password3 : " + validatePassword3);
+                        bool validatePassword4 = regex.ValidatePassword4(".Sangmeshwar*96");
+                        Console.WriteLine("Password4 : " + validatePassword4);
                         break;
                     case 2:
                         Console.WriteLine("\nChecking the sample email address");
